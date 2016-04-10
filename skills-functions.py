@@ -37,12 +37,12 @@ print multiply(4, 6)
 # 4. Write a function that takes a string and an integer and
 #    prints the string that many times
 
-def str_repeater(string_arg, num):
+def repeat_str(string_arg, num):
     """repeat a string value"""
 
     print str(string_arg) * int(num)
 
-str_repeater("spaghetti", 8)
+repeat_str("spaghetti", 8)
 
 # 5. Write a function that takes an integer and prints "Higher
 #    than 0" if higher than zero and "Lower than 0" if lower
@@ -74,12 +74,12 @@ print divis_by_three(7)
 # 7. Write a function that takes a sentence as one string and
 #    returns the number of spaces.
 
-def find_spaces(string_arg):
+def count_spaces(string_arg):
     """count the number of spaces in a sentence"""
 
     return string_arg.count(" ")
 
-print find_spaces("The rain in Spain stays mainly in the plain")
+print count_spaces("The rain in Spain stays mainly in the plain")
 
 
 # 8. Write a function that can be passed a meal price and a
@@ -88,14 +88,14 @@ print find_spaces("The rain in Spain stays mainly in the plain")
 #    percentage should be optional; if not given, it should
 #    default to 15%.
 
-def tip_calculator(meal_price, tip=15):
+def calculate_tip(meal_price, tip=15):
     """calculates total bill for a meal, inclusive of tip. If no tip percentage is provided, 
     calculate tip based on 15 percent of the bill"""
    
     total_bill = meal_price + meal_price * (tip/100)
     return "${:.2f}".format(total_bill)
 
-print tip_calculator(float(34), float(20))
+print calculate_tip(float(34), float(20))
 
 
 # 9. Write a function that takes an integer as an argument and
@@ -109,7 +109,7 @@ print tip_calculator(float(34), float(20))
 # 	or negative). Print sign and parity.
 
 
-def num_evaluator(num):
+def evaluate_num(num):
     """evaluate an integer's sign (positive or negative) and parity (even or odd); return a list"""
     evaluation = []
     if num == 0:
@@ -125,10 +125,10 @@ def num_evaluator(num):
         evaluation.append("Odd")
     return evaluation
 
-print num_evaluator(55)
+print evaluate_num(55)
 
-sign = num_evaluator(-63)[0]
-parity = num_evaluator(44)[1]
+sign = evaluate_num(-63)[0]
+parity = evaluate_num(44)[1]
 print sign
 print parity
 
@@ -147,16 +147,55 @@ print parity
 #    If the state is California, apply a 7% tax within the function.
 #    Your function should return the total cost of the item including tax.
 
+def calculate_price(price, state, tax):
+    """calculate an item's total cost including tax (7% for CA, 5% elsewhere)."""
+   
+    if state == "CA":
+        total = price + price * .07
+    else:
+        total = price + price * tax
+    return "${:.2f}".format(total)
+
+print calculate_price(8, "CA", .05)
+
+
 # 2. Turn the block of code from the directions into a function.
 #	 Take a name and a job title as parameters, making it so the
 # 	 job title defaults to "Engineer" if a job title is not passed in.
 #	 Return the person's title and name.
+
+def return_title(name, title = "Engineer"):
+    """return individual's name and job title; if no title provided, title defaults to 'Engineer' """
+
+    title_name = title + " " + name
+    return title_name
+
+print return_title("Christina Long", "Hackbright Fellow")
+print return_title("Jane Hacker")
 
 # 3. Given a receiver's name, receiver's job title, and sender's name, print the following letter:      
 #       Dear JOB_TITLE RECEIVER_NAME, I think you are amazing! Sincerely,
 #       SENDER_NAME. 
 #    Use the function from #2 to construct the full title for the letter's greeting.
 
+recipient = return_title("Jane Hacker")
+
+def write_letter(recipient, sender):
+    """automate letter to recipient"""
+
+    return "Dear {}, I think you are amazing!\nSincerely, {}".format (recipient, sender)
+
+print write_letter(recipient, "Sarah Developer")
+
 # 4. Turn the block of code from the directions into a function. This
 #    function will take a number and append it to *numbers*. It doesn't
 #    need to return anything.
+
+def list_nums(num):
+    """append input to existing number list"""
+
+    numbers = [1, 2]
+    numbers.append(num)
+    print numbers
+
+list_nums(3)

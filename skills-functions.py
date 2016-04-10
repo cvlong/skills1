@@ -8,6 +8,8 @@
 #    prints "Hello World".
 
 def write_hello_world():
+    """print 'Hello World' """
+
     print "Hello World"
 
 write_hello_world()
@@ -16,6 +18,8 @@ write_hello_world()
 #    prints "Hi" followed by the name.
 
 def greeting(name):
+    """print greeting"""
+
     print "Hi", name
 
 greeting("Christina")
@@ -24,17 +28,19 @@ greeting("Christina")
 #    them together. Print the result.
 
 def multiply(num1, num2):
-    """multiplies two integers together"""
+    """multiply two integers together"""
     
-    return num1 * num2
+    return int(num1) * int(num2)
 
 print multiply(4, 6)
 
 # 4. Write a function that takes a string and an integer and
 #    prints the string that many times
 
-def str_repeater(string_arg, int_arg):
-    print str(string_arg) * int(int_arg)
+def str_repeater(string_arg, num):
+    """repeat a string value"""
+
+    print str(string_arg) * int(num)
 
 str_repeater("spaghetti", 8)
 
@@ -42,10 +48,12 @@ str_repeater("spaghetti", 8)
 #    than 0" if higher than zero and "Lower than 0" if lower
 #    than zero. If integer is 0 print "Zero".
 
-def zero_finder(int_arg):
-    if int(int_arg) == 0:
+def zero_finder(num):
+    """evaluate integer in relation to zero"""
+
+    if int(num) == 0:
         print "Zero"
-    elif int(int_arg) > 0:
+    elif int(num) > 0:
         print "Higher than 0"
     else:
         print "Lower than 0"
@@ -56,8 +64,10 @@ zero_finder(565)
 #    boolean (True or False), depending on whether the number
 #    is evenly divisible by 3.
 
-def divis_by_three(int_arg):
-    return int(int_arg) % 3 == 0
+def divis_by_three(num):
+    """determine whether integer is divisible by 3"""
+
+    return int(num) % 3 == 0
 
 print divis_by_three(7)
 
@@ -65,9 +75,11 @@ print divis_by_three(7)
 #    returns the number of spaces.
 
 def find_spaces(string_arg):
-    spaces = []
-    for " " in string_arg:
-        append.spaces
+    """count the number of spaces in a sentence"""
+
+    return string_arg.count(" ")
+
+print find_spaces("The rain in Spain stays mainly in the plain")
 
 
 # 8. Write a function that can be passed a meal price and a
@@ -75,6 +87,15 @@ def find_spaces(string_arg):
 #    (price + price * tip). **However:** passing in the tip
 #    percentage should be optional; if not given, it should
 #    default to 15%.
+
+def tip_calculator(meal_price, tip=15):
+    """calculates total bill for a meal, inclusive of tip. If no tip percentage is provided, 
+    calculate tip based on 15 percent of the bill"""
+   
+    total_bill = meal_price + meal_price * (tip/100)
+    return "${:.2f}".format(total_bill)
+
+print tip_calculator(float(34), float(20))
 
 
 # 9. Write a function that takes an integer as an argument and
@@ -86,6 +107,30 @@ def find_spaces(string_arg):
 # 	on a number and unpack what is returned into two
 # 	variables --- sign and parity (whether it's positive
 # 	or negative). Print sign and parity.
+
+
+def num_evaluator(num):
+    """evaluate an integer's sign (positive or negative) and parity (even or odd); return a list"""
+    evaluation = []
+    if num == 0:
+        pass
+    else:
+        if int(num) > 0:
+            evaluation.append("Positive")
+        elif int(num) < 0:
+            evaluation.append("Negative")
+    if int(num) % 2 == 0:
+        evaluation.append("Even")
+    else:
+        evaluation.append("Odd")
+    return evaluation
+
+print num_evaluator(55)
+
+sign = num_evaluator(-63)[0]
+parity = num_evaluator(44)[1]
+print sign
+print parity
 
 
 ################################################################

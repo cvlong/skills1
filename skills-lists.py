@@ -328,14 +328,15 @@ def reverse_list_in_place(my_list):
 
 
 def duplicates(my_list):
-    """Return a list of words which are duplicated in the input list.
+    """Return a list of words which are duplicated in the input list. 
+       The returned list should be in ascending order.
 
     >>> duplicates(["apple", "apple", "banana", "cherry", "banana", "apple"])
     ['apple', 'banana']
 
     >>> duplicates([1, 2, 2, 4, 4, 4, 7])
-    [4, 2]
-    
+    [2, 4]
+
 
     """
 

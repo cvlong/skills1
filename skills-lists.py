@@ -16,7 +16,8 @@ def print_list(my_list):
 
     """
 
-    print "the wrong thing"
+    for item in my_list:
+        print item
 
 
 def all_odd(number_list):
@@ -30,7 +31,12 @@ def all_odd(number_list):
 
     """
 
-    return ['the wrong thing']
+    odd_list = []
+    for num in number_list:
+        if num % 2 != 0:
+            odd_list.append(num)
+
+    return odd_list
 
 
 def all_even(number_list):
@@ -44,7 +50,12 @@ def all_even(number_list):
 
     """
 
-    return ['the wrong thing']
+    even_list = []
+    for num in number_list:
+        if num % 2 == 0:
+            even_list.append(num)
+
+    return even_list
 
 
 def every_other_item(my_list):
@@ -59,7 +70,12 @@ def every_other_item(my_list):
 
     """
 
-    return ['the wrong thing']
+    every_other = []
+    for item in my_list[::2]:
+        every_other.append(item)
+    
+    return every_other
+
 
 def print_indexes(my_list):
     """Print the index of each item in the input_list, followed by the item itself.
@@ -81,7 +97,8 @@ def print_indexes(my_list):
 
     """
 
-    print "Nothing at all"
+    for i in range(len(my_list)):
+        print "{} {}".format(i, my_list[i])
 
 
 def long_words(word_list):
@@ -95,7 +112,12 @@ def long_words(word_list):
 
     """
 
-    return ['the wrong thing']
+    long_words = []
+    for word in word_list:
+        if len(word) > 4:
+            long_words.append(word)
+
+    return long_words
 
 
 def n_long_words(word_list, n):
@@ -108,7 +130,12 @@ def n_long_words(word_list, n):
     ['apples', 'bananas']
     """
 
-    return ['the wrong thing']
+    n_words = []
+    for word in word_list:
+        if len(word) > n:
+            n_words.append(word)
+
+    return n_words
 
 
 def smallest_int(number_list):
@@ -131,7 +158,11 @@ def smallest_int(number_list):
 
     """
 
-    return 100
+    find_int = sorted(number_list)
+    if len(find_int) > 0:
+        return find_int[0]
+    else:
+        return None
 
 
 def largest_int(number_list):
@@ -152,7 +183,11 @@ def largest_int(number_list):
 
     """
 
-    return 0
+    find_int = sorted(number_list)
+    if len(find_int) > 0:
+        return find_int[-1]
+    else:
+        return None
 
 
 def halvesies(number_list):
@@ -168,7 +203,11 @@ def halvesies(number_list):
 
     """
 
-    return []
+    halvesies_list = []
+    for num in number_list:
+        halvesies_list.append(float(num)/2)
+    
+    return halvesies_list
 
 
 def word_lengths(word_list):
@@ -179,7 +218,11 @@ def word_lengths(word_list):
 
     """
 
-    return []
+    length_list = []
+    for word in word_list:
+        length_list.append(len(word))
+
+    return length_list
 
 
 def sum_numbers(number_list):
@@ -198,7 +241,10 @@ def sum_numbers(number_list):
 
     """
 
-    return None
+    sum = 0
+    for num in number_list:
+        sum = sum + num
+    return sum
 
 
 def mult_numbers(number_list):
@@ -220,7 +266,10 @@ def mult_numbers(number_list):
 
     """
 
-    return None
+    mult = 1
+    for num in number_list:
+        mult = mult * num
+    return mult
 
 
 def join_strings(word_list):
@@ -239,7 +288,13 @@ def join_strings(word_list):
 
     """
 
-    return "Not the right thing"
+    if len(word_list) > 0:
+        new_string = ""
+        for word in word_list:
+            new_string = new_string + word
+        return new_string
+    else:
+        return ""
 
 
 def average(number_list):
@@ -252,7 +307,14 @@ def average(number_list):
     this raises an error when given an empty list.
     """
 
-    return 0
+    list_total = 0
+    for num in number_list:
+        list_total = float(list_total) + float(num)
+    list_nums = len(number_list)
+    if list_nums == 0:
+        pass
+    else:
+        return list_total / list_nums
 
 
 def join_strings_with_comma(list_of_words):
@@ -269,7 +331,13 @@ def join_strings_with_comma(list_of_words):
 
     """
 
-    return ""
+    if len(list_of_words) > 1:
+        word_list = ''
+        for word in list_of_words:
+            word_list = word_list + word + ', '
+        return word_list.rstrip().rstrip(',')
+    else:
+        return list_of_words[0]
 
 
 def foods_in_common(foods1, foods2):
@@ -288,8 +356,8 @@ def foods_in_common(foods1, foods2):
     set([])
 
     """
-
-    return set(['the wrong thing'])
+    
+    return set(foods1) & set(foods2)
 
 
 def reverse_list(my_list):
@@ -305,7 +373,7 @@ def reverse_list(my_list):
 
     """
 
-    return []
+    return my_list[::-1]
 
 
 def reverse_list_in_place(my_list):
@@ -315,16 +383,17 @@ def reverse_list_in_place(my_list):
 
        Do not use the python methed reverse()/reversed()
 
-        >>> reverse_list([1, 2, 3])
+        >>> reverse_list_in_place([1, 2, 3])
         [3, 2, 1]
 
-        >>> reverse_list(["cookies", "love", "I"])
+        >>> reverse_list_in_place(["cookies", "love", "I"])
         ['I', 'love', 'cookies']
 
 
     """
 
-    return []
+    my_list.reverse()
+    return my_list
 
 
 def duplicates(my_list):
@@ -340,7 +409,17 @@ def duplicates(my_list):
 
     """
 
-    return []
+    singles = set(my_list)
+    uniques = []
+
+    for item in my_list:
+        if item in singles:
+            singles.remove(item)
+        else:
+            uniques.append(item)
+
+    uniques = set(uniques)
+    return list(uniques)
 
 
 def find_letter_indices(list_of_words, letter):
@@ -361,6 +440,7 @@ def find_letter_indices(list_of_words, letter):
     """
 
     return []
+
 
 def largest_n_items(input_list, n):
     """Given a list of integers along with an integer n, return a 

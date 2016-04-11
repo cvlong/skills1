@@ -244,6 +244,7 @@ def sum_numbers(number_list):
     sum = 0
     for num in number_list:
         sum = sum + num
+    
     return sum
 
 
@@ -269,6 +270,7 @@ def mult_numbers(number_list):
     mult = 1
     for num in number_list:
         mult = mult * num
+    
     return mult
 
 
@@ -406,7 +408,6 @@ def duplicates(my_list):
     >>> duplicates([1, 2, 2, 4, 4, 4, 7])
     [2, 4]
 
-
     """
 
     singles = set(my_list)
@@ -455,8 +456,19 @@ def largest_n_items(input_list, n):
 
     """
 
-    return []
+    input_list.sort()
+    input_list.reverse()
+    # print input_list
+    ######[6006, 700, 59, 42, 6, 2]
 
+    largest_nums = []
+    for i in range(len(input_list)):
+        if i < n:
+            largest_nums.append(input_list[i])
+    
+    largest_nums = set(largest_nums)
+    return list(largest_nums)
+    
 
 ##############################################################################
 # END OF ASSIGNMENT: You can ignore everything below.
